@@ -1,0 +1,49 @@
+@media (max-width: 1046px){
+    body{
+        background-color: lightblue;
+    }
+    .chatbox{
+        width: 52rem;
+    }
+    .message{
+        margin-left: 59px;
+        
+    }
+    .btn{
+        margin-left: 355px;
+    }
+}
+
+@media (max-width: 638px    ){
+    body{
+        background-color: lightblue;
+    }
+    .chatbox{
+        margin-left: 90px;
+        width: 52rem;
+    }
+    .message{
+        margin-left: 59px;
+        
+    }
+    .btn{
+        margin-left: 355px;
+    }
+}
+
+@media (max-width: 618px){
+    body{
+        background-color: lightblue;
+    }
+    .chatbox{
+        margin-left: 69px;
+        width: 49rem;
+    }
+    .message{
+        margin-left: 48px;
+        
+    }
+    .btn{
+        margin-left: 355px;
+    }
+}
