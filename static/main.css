@@ -1,49 +1,26 @@
-@media (max-width: 1046px){
-    body{
-        background-color: lightblue;
-    }
+@media (max-width: 1057px){
     .chatbox{
         width: 52rem;
+        margin-left: 121px;
     }
     .message{
-        margin-left: 59px;
+        margin-left: 168px;
         
     }
     .btn{
-        margin-left: 355px;
+        margin-left: 591px;
     }
-}
-
-@media (max-width: 638px    ){
-    body{
-        background-color: lightblue;
+    .main{
+        font-size: 28px;
+        margin-left: 25rem;
+        font-weight: bolder;
     }
-    .chatbox{
-        margin-left: 90px;
-        width: 52rem;
+    h1{
+        font-size: 27px;
+        margin-left: 25rem;
     }
-    .message{
-        margin-left: 59px;
-        
-    }
-    .btn{
-        margin-left: 355px;
-    }
-}
-
-@media (max-width: 618px){
-    body{
-        background-color: lightblue;
-    }
-    .chatbox{
-        margin-left: 69px;
-        width: 49rem;
-    }
-    .message{
-        margin-left: 48px;
-        
-    }
-    .btn{
-        margin-left: 355px;
+    .btn-dele{
+        margin-left: 26rem;
+        width: 87px;
     }
 }

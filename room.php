@@ -1,5 +1,6 @@
 <?php $roomname = $_GET['roomname']; ?>
 <?php
+error_reporting(0);
 include 'config.php';
 include 'variables.php';
 $sql = "SELECT * FROM `rooms` WHERE `roomname` LIKE '$roomname'";
@@ -11,8 +12,10 @@ if(mysqli_num_rows($q)>0){
   }
 }
 if($ip==$_SERVER["REMOTE_ADDR"]){
-  $btn = "<a href='#'><button style='border: 1px solid black;'>Delete Room</button></a>";
-  echo "<center>Your room password is: " . $password . "</center>";
+  // $btn = "<a href='#'><button class='btn-dele' style='border: 1px solid black;'>Delete Room</button></a>";
+  echo "<center class='main'>Your roomname is: " . $roomname . "</center>";
+  echo "<center class='main'>Your room password is: " . $password . "</center>";
+  echo "<hr style='width: 1311px;height: 14px;border: 1px solid pink;background-color: pink;'>";
 }
 ?>
 <!DOCTYPE html>
@@ -74,15 +77,13 @@ if($ip==$_SERVER["REMOTE_ADDR"]){
     
     <title>Room</title>
 </head>
-<body class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+<body bgcolor="#FFD700">
     <center>
-        <h1 style="font-size: 40px;">Roomname - <?php echo $roomname; ?></h1>
-        <?php echo $btn; ?>
         <div class="script">
         </div>
         <div style="height: 25rem; width: 65rem; border: 1px solid black;" class="chatbox">
 
-        </div>
+        </div><br>
         <input type="text" id="message" class="message" style="width: 60rem;">
         <input type="button" class="btn" id="btn" style="width: 5rem;" value="Send">
     </center>
@@ -108,7 +109,7 @@ $(document).ready(function() {
 
 <script>
 $(document).ready(function() {
-    setInterval(runfunc, 1000)
+    setInterval(runfunc, 100)
 
     function runfunc() {
         var message = $(".message").val()
@@ -124,7 +125,7 @@ $(document).ready(function() {
         }, function(data, status) {
             $(".script").html(data)
         })
-    }
+    }   
 })
 </script>
 <script>
@@ -136,6 +137,6 @@ input.addEventListener("keyup", function(event) {
   }
 });
 </script>
-
+<!-- authenticating user in room by password -->
 
 </html>
