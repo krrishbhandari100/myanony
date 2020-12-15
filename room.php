@@ -137,6 +137,5 @@ input.addEventListener("keyup", function(event) {
   }
 });
 </script>
-<!-- authenticating user in room by password -->
 
 </html>
