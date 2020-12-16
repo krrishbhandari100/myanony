@@ -5,7 +5,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $message = $_POST['message'];
     $roomname = $_POST['roomname'];
     $ip = $_SERVER["REMOTE_ADDR"];
-    $sql = "INSERT INTO `messages` (`roomname`, `time`, `message`, `ip`) VALUES ('$roomname', CURRENT_TIMESTAMP, '$message', '$ip');";
+    $join_room = $_POST["join_room"];
+    $sql = "INSERT INTO `messages` (`roomname`, `time`, `message`, `ip`, `join_name`) VALUES ('$roomname', CURRENT_TIMESTAMP, '$message', '$ip', '$join_room');";
     if(mysqli_query($conn, $sql)){
         echo "";
     }

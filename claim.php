@@ -125,7 +125,7 @@ else{
             <script>
                 swal('Success', 'your room is created go and chat with freely', 'success')
                 .then(() => {
-                window.location='$address" . "room.php?roomname=$roomname';
+                window.location='$address" . "setjoiningname.php?roomname=$roomname';
                 });
             </script>
             </html>

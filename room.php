@@ -1,4 +1,6 @@
-<?php $roomname = $_GET['roomname']; ?>
+<?php $roomname = $_GET['roomname']; 
+$name = $_GET['joining_name'];
+?>
 <?php
 error_reporting(0);
 include 'config.php';
@@ -12,10 +14,15 @@ if(mysqli_num_rows($q)>0){
   }
 }
 if($ip==$_SERVER["REMOTE_ADDR"]){
-  // $btn = "<a href='#'><button class='btn-dele' style='border: 1px solid black;'>Delete Room</button></a>";
   echo "<center class='main'>Your roomname is: " . $roomname . "</center>";
   echo "<center class='main'>Your room password is: " . $password . "</center>";
   echo "<hr style='width: 1311px;height: 14px;border: 1px solid pink;background-color: pink;'>";
+  echo "<center>please do not reload the webpage the changes will automaticall occur</center>";
+  echo "<center>Joining Name: " .  "<b>" . $name . "</b>" . "</center>";
+}
+else{
+    echo "<center>please do not reload the webpage the changes will automatically occur</center>";
+    echo "<center>Joining Name: " .  "<b>" . $name . "</b>" . "</center>";
 }
 ?>
 <!DOCTYPE html>
@@ -23,59 +30,61 @@ if($ip==$_SERVER["REMOTE_ADDR"]){
 
 <head>
     <style>
-    .container {
-        border: 2px solid #dedede;
-        background-color: #f1f1f1;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 10px 0;
-    }
+        .container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
 
-    .darker {
-        border-color: #ccc;
-        background-color: #ddd;
-    }
+.darker {
+    border-color: #ccc;
+    background-color: #ddd;
+}
 
-    .container::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
-    .container img {
-        float: left;
-        max-width: 60px;
-        width: 100%;
-        margin-right: 20px;
-        border-radius: 50%;
-    }
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
 
-    .container img.right {
-        float: right;
-        margin-left: 20px;
-        margin-right: 0;
-    }
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right: 0;
+}
 
-    .time-right {
-        float: right;
-        color: #aaa;
-    }
+.time-right {
+    float: right;
+    color: #aaa;
+}
 
-    .time-left {
-        float: left;
-        color: #999;
-    }
+.time-left {
+    float: left;
+    color: #999;
+}
 
-    .chatbox {
-        overflow: scroll;
-    }
+.chatbox {
+    overflow: scroll;
+}
     </style>
+    <script src="js/reload.js"></script>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet'>
     <link href='static/main.css' rel='stylesheet'>
+    <script src="js/trigger.js"></script>
     
-    <title>Room</title>
+    <title>Room - <?php echo $roomname; ?></title>
 </head>
 <body bgcolor="#FFD700">
     <center>
@@ -97,7 +106,8 @@ $(document).ready(function() {
         var message = $(".message").val()
         $.post("postmsg.php", {
             message: message,
-            roomname: '<?php echo $roomname; ?>'
+            roomname: '<?php echo $roomname; ?>',
+            join_room: '<?php echo $name; ?>'
         }, function(data, status) {
             // console.log(data)
             $(".chatbox").html(data);
@@ -109,14 +119,21 @@ $(document).ready(function() {
 
 <script>
 $(document).ready(function() {
-    setInterval(runfunc, 100)
+    var input = document.getElementById("message");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("btn").click();
+  }
+});
 
+    setInterval(runfunc, 100)
     function runfunc() {
         var message = $(".message").val()
         $.post("htcont.php", {
-            roomname: '<?php echo $roomname; ?>'
+            roomname: '<?php echo $roomname; ?>',
+            join_room: '<?php echo $name; ?>'
         }, function(data, status) {
-            // console.log(data)
             $(".chatbox").html(data);
         })
         
@@ -128,14 +145,4 @@ $(document).ready(function() {
     }   
 })
 </script>
-<script>
-var input = document.getElementById("message");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("btn").click();
-  }
-});
-</script>
-
 </html>
