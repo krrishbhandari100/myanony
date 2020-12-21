@@ -14,4 +14,5 @@ if($rows > 0){
     }
 }
 echo $res;
+mysqli_close($conn);
 ?>

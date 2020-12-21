@@ -7,4 +7,5 @@ $q = mysqli_query($conn,$sql);
 if(mysqli_num_rows($q)=="0"){
     echo "<script>window.location='$address';</script>";
 }
+mysqli_close($conn);
 ?>

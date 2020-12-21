@@ -24,6 +24,7 @@ else{
     echo "<center>please do not reload the webpage the changes will automatically occur</center>";
     echo "<center>Joining Name: " .  "<b>" . $name . "</b>" . "</center>";
 }
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang='en'>

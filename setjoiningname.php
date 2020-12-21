@@ -2,6 +2,7 @@
 include 'config.php';
 include 'variables.php';
 $roomname = $_GET["roomname"];
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
