@@ -135,13 +135,12 @@ mysqli_close($conn);
             }, function(data, status) {
                 $(".chatbox").html(data);
             })
-
-            $.post("checkroom.php", {
+        }
+        $.post("checkroom.php", {
                 roomname: '<?php echo $roomname; ?>'
             }, function(data, status) {
                 $(".script").html(data)
             })
-        }
     })
 </script>
 
