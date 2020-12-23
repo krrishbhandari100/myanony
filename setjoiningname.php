@@ -12,7 +12,7 @@ mysqli_close($conn);
     <title>Joining Name</title>
     <script>
         var name = prompt('Enter a joining name for roomname: <?php echo $roomname; ?>')
-        window.location='<?php echo $address; ?>room.php?roomname=<?php echo $roomname; ?>&joining_name=' + name
+        window.location="<?php echo $address; ?>room.php?roomname=<?php echo $roomname; ?>&joining_name=" + name
     </script>
 </head>
 <body>

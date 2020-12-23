@@ -139,3 +139,4 @@ else{
 }
 echo $HTML_CONTENT;
 mysqli_close($conn);
+?>
