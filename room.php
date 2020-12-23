@@ -78,12 +78,10 @@ mysqli_close($conn);
     overflow: scroll;
 }
     </style>
-    <script src="js/reload.js"></script>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link href='https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css' rel='stylesheet'>
     <link href='static/main.css' rel='stylesheet'>
-    <script src="js/trigger.js"></script>
     
     <title>Room - <?php echo $roomname; ?></title>
 </head>
